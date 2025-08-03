@@ -14,7 +14,121 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      audit_improvements: {
+        Row: {
+          audit_id: string
+          created_at: string
+          criteria: string
+          id: string
+          priority: string
+          section: string
+          suggestion: string
+        }
+        Insert: {
+          audit_id: string
+          created_at?: string
+          criteria: string
+          id?: string
+          priority?: string
+          section: string
+          suggestion: string
+        }
+        Update: {
+          audit_id?: string
+          created_at?: string
+          criteria?: string
+          id?: string
+          priority?: string
+          section?: string
+          suggestion?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "audit_improvements_audit_id_fkey"
+            columns: ["audit_id"]
+            isOneToOne: false
+            referencedRelation: "audits"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      audit_items: {
+        Row: {
+          audit_id: string
+          created_at: string
+          criteria: string
+          id: string
+          response: boolean
+          section: string
+        }
+        Insert: {
+          audit_id: string
+          created_at?: string
+          criteria: string
+          id?: string
+          response: boolean
+          section: string
+        }
+        Update: {
+          audit_id?: string
+          created_at?: string
+          criteria?: string
+          id?: string
+          response?: boolean
+          section?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "audit_items_audit_id_fkey"
+            columns: ["audit_id"]
+            isOneToOne: false
+            referencedRelation: "audits"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      audits: {
+        Row: {
+          audit_date: string
+          auditor_name: string
+          created_at: string
+          id: string
+          no_count: number
+          restaurant_name: string
+          status: string
+          success_percentage: number
+          total_items: number
+          updated_at: string
+          yes_count: number
+        }
+        Insert: {
+          audit_date?: string
+          auditor_name: string
+          created_at?: string
+          id?: string
+          no_count: number
+          restaurant_name: string
+          status?: string
+          success_percentage: number
+          total_items: number
+          updated_at?: string
+          yes_count: number
+        }
+        Update: {
+          audit_date?: string
+          auditor_name?: string
+          created_at?: string
+          id?: string
+          no_count?: number
+          restaurant_name?: string
+          status?: string
+          success_percentage?: number
+          total_items?: number
+          updated_at?: string
+          yes_count?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
