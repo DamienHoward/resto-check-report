@@ -47,7 +47,7 @@ export const AUDIT_SECTIONS: AuditSection[] = [
       {
         id: "salle_1",
         section: "Zone Salle",
-        criteria: "Agencement optimal et logique des tables"
+        criteria: "table alignée"
       },
       {
         id: "salle_2",
